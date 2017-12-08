@@ -1,0 +1,30 @@
+<div class="col poi">
+
+  <a href="javascript:void(0);" data-modal-id="modal-pois" data-modal-item-id="{{poi.title|slugify}}" class="js-open-modal poi__image bg-img bg-img--3-2" style="background-image: url('{{site.baseurl}}/img/content/{{page.id}}/pois/{{poi.title|slugify}}.jpg');">
+    {% if poi.image-credit %}
+    <div class="bg-img__credit">
+      {{poi.image-credit}}
+    </div>
+    {% endif %}
+  </a>
+
+  <div class="space--md"></div>
+  <h4 class="title title--sm title--bolder">{{poi.title}}</h4>
+
+  {% if poi.title-sub %}
+    <div class="title title--xxxs title--bolder">{{poi.title-sub}}</div>
+  {% endif %}
+
+  <p class="text--small">{{poi.content}}</p>
+
+  <div class="poi__footer">
+    {% if poi.distance %}
+    <p class="poi__location">
+      {{poi.distance}}
+    </p>
+    {% endif %}
+
+    <a href="javascript:void(0);" data-modal-id="modal-pois" data-modal-item-id="{{poi.title|slugify}}" class="js-open-modal poi__btn btn btn--sm btn--solid">Read more</a>
+  </div>
+
+</div>

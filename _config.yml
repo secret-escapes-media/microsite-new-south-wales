@@ -1,0 +1,18 @@
+# Site settings
+title: Qantas New South Wales
+client:
+  name: New South Wales
+  link:
+description:
+
+baseurl: "/qantas-new-south-wales" # the subpath of your site, e.g. /blog/
+url: "http://mp.secretescapes.com" # the base hostname & protocol for your site
+
+
+# Build settings
+markdown: kramdown
+exclude: [node_modules, gulpfile.js, package.json, package-lock.json, js/script.js]
+keep_files: [js/scripts.min.js]
+sass:
+    sass_dir: css
+    style: compressed
