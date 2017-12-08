@@ -3,6 +3,9 @@ title: Qantas New South Wales
 client:
   name: New South Wales
   link:
+second-client:
+  name: Qantas
+  link:
 description:
 
 baseurl: "/qantas-new-south-wales" # the subpath of your site, e.g. /blog/
