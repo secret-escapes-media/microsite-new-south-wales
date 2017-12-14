@@ -1,7 +1,7 @@
 <div class="banner">
   <div class="banner__wrap">
-    <div class="banner__content">
-      <div class="row row--padding text--white">
+    <div class="banner__content row--padding">
+      <div class="row text--white">
 
         {% if page.banner.content %}
           {{page.banner.content}}
@@ -11,7 +11,7 @@
             <div class="title title--super title--sm title--bold title--upper title--kerning-lg">{{page.banner.title-super}}</div>
           {% endif %}
 
-          <h1 class="title title--display title--display-size">
+          <h1 class="title title--banner title--xxxl">
             {% if page.banner.title %}
               {{page.banner.title}}
             {% else %}

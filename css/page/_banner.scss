@@ -6,7 +6,6 @@ $core-nav-height-sm:  $s8;
 .banner {
   position: relative;
   overflow: hidden;
-  text-align: center;
   color: white;
   height: 80%;
   .overview & { height: 80%; }
@@ -22,9 +21,18 @@ $core-nav-height-sm:  $s8;
   &__content {
     display: table-cell;
     vertical-align: middle;
-    text-shadow: 0 0 35px rgba($grey-darkest,0.6);
-    .page--overview & { text-shadow: 0 0 35px rgba(76,92,117,0.6); }
+    // text-shadow: 0 0 30px #292818;
   }
+
+  &__title {
+    font-weight: 600;
+    line-height: 1.1;
+    font-size: $s6;
+    display: block;
+    @include bp(md){ font-size: $s8; }
+    @include bp(xl){ font-size: $s10; }
+  }
+
   &__bg {
     position: absolute;
     top: 0;

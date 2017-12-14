@@ -42,9 +42,10 @@
 
 .line-length {
   display: inline-block;  max-width: 40rem;
-  &--lg { display: inline-block;  max-width: 47rem; }
-  &--md { display: inline-block;  max-width: 38rem; }
-  &--sm { display: inline-block;  max-width: 30rem; }
+  &--xl { display: inline-block; max-width: 68rem; }
+  &--lg { display: inline-block; max-width: 47rem; }
+  &--md { display: inline-block; max-width: 38rem; }
+  &--sm { display: inline-block; max-width: 30rem; }
 }
 
 

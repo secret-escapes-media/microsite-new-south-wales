@@ -8,7 +8,6 @@
 
   &--display {
     font-family: $font-family-headline-01;
-    line-height: 1;
   }
 
   &--core {
@@ -19,8 +18,8 @@
   &--color { color: $headline; }
 
   & + *         { padding-top: .75em; }
-  &--super + *  { padding-top: 0 !important; }
-  &--sub        { padding-top: .15em !important; }
+  &--super + *  { padding-top: 15px !important; }
+  &--sub        { padding-top: 15px !important; }
   &--light      { font-weight: 300; }
   &--bold       { font-weight: 500; }
   &--bolder     { font-weight: 600; }
@@ -32,7 +31,6 @@
   &--upper      { text-transform: uppercase; }
   &--italic     { font-style: italic; }
 
-  &--display-size { font-size: $s8; }
   &--xxxxxl       { font-size: $s7; }
   &--xxxxl        { font-size: $s7; }
   &--xxxl         { font-size: $s7; }
@@ -46,7 +44,6 @@
   &--xxxs         { font-size: $s-1; }
 
   @include bp(md){
-    &--display-size { font-size: $s10; }
     &--xxxxxl       { font-size: $s11; }
     &--xxxxl        { font-size: $s10; }
     &--xxxl         { font-size: $s9; }
@@ -58,10 +55,6 @@
     &--xs           { font-size: $s3; }
     &--xxs          { font-size: $s2; }
     &--xxxs         { font-size: $s1; }
-  }
-
-  @include bp(lg){
-    &--display-size { font-size: $s11; }
   }
 
 

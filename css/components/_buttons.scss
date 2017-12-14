@@ -70,4 +70,12 @@
   &--solid {
     background-color: $theme-primary;
   }
+  &--qantas {
+    background-color: $theme-primary;
+  }
+  &--white {
+    background-color: rgba($white,0.9);
+    color: $theme-primary;
+    &:hover { background-color: $white; }
+  }
 }
