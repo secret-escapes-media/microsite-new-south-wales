@@ -8,8 +8,8 @@ nav-order: 1
 
 banner:
   content: >
-    <h1 class="title title--md title--super title--upper title--kerning">Discover New South Wales</h1>
-    <div class="banner__title title title--display line-length--xl">Let Qantas show you the best of Australia</div>
+    <h1 class="title title--sm title--super title--upper title--kerning">Discover New South Wales</h1>
+    <div class="banner__title title title--display line-length--lg">Let Qantas show you the best of Australia</div>
     <a href="#section-intro" class="btn btn--lg btn--qantas">Start exploring</a>
 
 
@@ -105,7 +105,7 @@ sections:
     id: for-nature-lovers
     description: >
       <p class="text--xl text--bold">New South Wales shelters irresistible natural wonders. </p>
-      <p class="text--lg">From martian-like desert outback to verdant rainforests, rising high to piercing mountains and down to the ocean, this state is a picture of natural diversity. Explore lofty heights from incredible trails, swim with dolphins and spot koalas, and find untouched, unspoilt beauty at every corner.</p>
+      <p class="text--lg">From a martian-like desert outback to verdant rainforests, rising high to piercing mountains and down to the ocean, this state is a picture of natural diversity. Remarkable natural landscapes make this state the envy of the country. Explore lofty heights from incredible trails, swim with dolphins and spot koalas, and find untouched, unspoilt beauty at every corner.</p>
     pois-title: Nature highlights
     pois:
 
@@ -131,7 +131,7 @@ sections:
     id: cultural-pursuits
     description: >
       <p class="text--xl text--bold">Discover a diverse cultural tapestry all in one state. </p>
-      <p class="text--lg">New South Wales is a cultural powerhouse. From ancient Aboriginal history to contemporary art hanging in the hip galleries of Sydney, discover a startling array of cultural pursuits that span the millenia. </p>
+      <p class="text--lg">New South Wales is a cultural powerhouse. From ancient Aboriginal history to contemporary art hanging in the hip galleries of Sydney, discover a startling array of cultural pursuits that span the millenia. Travel across the state and discover the unique communities producing remarkable artworks, guiding you through spiritual landscapes, and opening traveller’s eyes to the creative buzz of New South Wales.</p>
     pois-title: Cultural highlights
     pois:
 
@@ -140,7 +140,7 @@ sections:
         content: Dotted across the New South Wales landscape are a host of galleries that shelter fine Aboriginal art. The joyous riot of colour that these paintings employ to describe abstractions of the natural world are a magnificent glimpse at Aboriginal culture. Find these artworks at the Wollongong Art Gallery, Lake Macquarie City Art Gallery and Moree Plains Gallery and discover fine curations.
 
       - title: Blue Mountains Cultural Trail
-        id: blue-mountains
+        id: blue-mountains-cultural-trail
         content: Already a proven starlet for outdoor lovers, the Blue Mountains also hide a remarkable cultural significance. Let an Aboriginal guide take you through this remarkable landscape, highlighting the spiritual connection between the community and the enchanting mountains. Finish your tour with a visit to the Blue Mountains Cultural Centre, showcasing the culture of the region with a curation of local artwork.
 
       - title: Sydney Art Trail
@@ -170,6 +170,16 @@ flights:
     - title: Feature 3
       id: feature-3
       content: Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+
+  prices-title: Flight Options
+  prices-description: Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
+  prices:
+    - title: Economy return from
+      price: "732"
+    - title: Premium Economy return from
+      price: "2,151"
+    - title: Business return from
+      price: "3,827"
 
 
 
@@ -265,11 +275,33 @@ flights:
       <div class="bob__image bg-img bg-img--3-2 bg-img--rounded" style="background-image: url({{site.baseurl}}/img/content/flights/{{feature.id}}.jpg);"></div>
       <div class="bob__text">
         <h3 class="title title--sm title--bolder">{{feature.title}}</h3>
-        <hr class="hr--left">
         <p>{{feature.content}}</p>
       </div>
     </div>
     {% endfor %}
+  </div>
+
+
+
+
+  <div class="row row--padding text--center vpad-top--lg">
+    <hr class="hr--center">
+    <h2 class="title title--sm title--bolder title--upper title--kerning">{{flights.prices-title}}</h2>
+    <p class="line-length--lg">{{flights.prices-description}}</p>
+  </div>
+
+  <!-- FLIGHTS CLASSES -->
+  <div class="row row--xxl row--padding row--4-4-4-gutters text--center">
+
+    {% for price in flights.prices %}
+    <div class="col">
+      <div class="bg--black-20 bg--rounded row--padding vpad--md">
+        <p>{{price.title}}</p>
+        <span class="title title--bold">£<span class="title--xs">{{price.price}}*</span></span>
+      </div>
+    </div>
+    {% endfor %}
+
   </div>
 
   <!-- FLIGHTS CTA -->
