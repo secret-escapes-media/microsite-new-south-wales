@@ -8,14 +8,17 @@ $core-nav-height-sm:  $s8;
   overflow: hidden;
   color: white;
   height: 80%;
+  min-height: 460px;
   .overview & { height: 80%; }
   &__wrap {
     display: table;
     width: 100%;
     height: 100%;
     padding-top: $core-nav-height-sm;
+    background-color: rgba($grey-darkest,0.3);
     @include bp(lg){
       padding-top: $core-nav-height;
+      background-color: transparent;
     }
   }
   &__content {
@@ -41,7 +44,11 @@ $core-nav-height-sm:  $s8;
     bottom: 0;
     z-index: $z-background;
     background-color: $grey-dark;
+
     @include background-attributes;
+    @include max-bp(lg){
+      background-position: center right;
+    }
   }
   &__nav {
     position: absolute;

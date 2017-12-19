@@ -15,17 +15,23 @@
     }
   }
   &--partner { // max-width for this is about 150x46px
-    max-width: 110px;
-    &-sm { max-width: 90px; }
+    width: 110px;
+    &-sm { width: 82px; }
     & + * { padding-left: 1em; }
     & + & {
-      border-left: 1px solid rgba($white,0.2); 
+      border-left: 1px solid rgba($white,0.2);
+      margin-left: 1em;
+    }
+    .footer__logos &,
+    .mobile-nav__bottom & {
+      border-left: 0px !important;
+      padding-left: 0px !important;
       margin-left: 1em;
     }
   }
   &--qantas { // max-width for this is about 150x46px
-    max-width: 140px;
-    &-sm { max-width: 110px; }
+    width: 140px;
+    &-sm { width: 90px; }
     & + * { padding-left: 1em; }
   }
 }

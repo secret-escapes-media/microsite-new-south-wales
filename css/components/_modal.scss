@@ -15,10 +15,10 @@ $icon-size: 3em;
   &.is-closed { display: none; }
   &__ui-wrap {
     position: absolute;
-    top: ($s2 * 1.5);
+    top: $icon-size;
     left: 0;
     right: 0;
-    bottom: ($s2 * 1.5);
+    bottom: $icon-size;
     width: 100%;
     max-width: $xl;
     margin-top: 0 !important;

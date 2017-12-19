@@ -2,11 +2,11 @@
 title: New South Wales with Qantas
 client:
   name: New South Wales
-  link:
+  link: "https://www.qantas.com/gb/en/promotions/experience-the-best-of-australia.html?alt_cam=gb:re:omd:dis:pomd:DNSWAUSTRALIADAY:n:n:n:n"
 second-client:
   name: Qantas
-  link:
-description:
+  link: "https://www.qantas.com/gb/en/promotions/experience-the-best-of-australia.html?alt_cam=gb:re:omd:dis:pomd:DNSWAUSTRALIADAY:n:n:n:n"
+description: From vast, blue-tinged peaks to the sleek modernity of Australia’s favourite urban metropolis, New South Wales distills all of Australia’s best qualities into one seriously tempting package.
 
 baseurl: "/qantas-new-south-wales" # the subpath of your site, e.g. /blog/
 url: "http://mp.secretescapes.com" # the base hostname & protocol for your site

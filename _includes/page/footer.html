@@ -1,14 +1,11 @@
 <footer>
-  {% assign pages = site.html_pages %}
-  {% if pages.size > 1 %}
-    {% include nav/microsite-nav.html second-level="false" class="site-nav--footer" %}
-  {% endif %}
   <div class="footer">
     <div class="footer__logos">
-      <a class="logo logo--se" href="https://www.secretescapes.com/"><img class="js-svg-swap" src="{{ site.baseurl }}/img/logo/secret-escapes.png" alt="Secret Escapes logo"></a>
+      <a class="logo logo--se logo--se-sm" href="https://www.secretescapes.com/"><img class="js-svg-swap" src="{{ site.baseurl }}/img/logo/secret-escapes.png" alt="Secret Escapes logo"></a>
+      {% include components/partner-logo.html small='true' class='footer' %}
     </div>
     <div class="footer__info text--center">
-      <p>© Copyright <span class="js-year">2017</span> Secret Escapes. <a href="javascript:void(0);" class="js-open-modal" data-modal-id="modal-terms" data-modal-item-id="terms">Terms & conditions apply.</a></p>
+      <p>© Copyright <span class="js-year">2017</span> Secret Escapes</p>
     </div>
   </div>
 </footer>

@@ -26,12 +26,23 @@
 
 
 
-
 .intro {
   $page-nav-height: 50px;
   position: relative;
   &.has-nav {
     padding-bottom: $page-nav-height;
     &__content {}
+  }
+}
+
+
+
+.topic {
+  @include layout(12 1/2);
+  &__text {}
+  &__image {}
+  @include bp(xl){
+    &__text { @include span(6); }
+    &__image { @include span(6 last); }
   }
 }

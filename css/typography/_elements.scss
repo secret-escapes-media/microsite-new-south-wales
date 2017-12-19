@@ -75,6 +75,7 @@ hr {
   margin: $s1;
   .title + & { padding-top: 0; margin-top: $s1; }
   .page__content & + p { padding-top: 0; }
+  .text--white & { background-color: rgba($white,0.3); }
 }
 .hr {
   &--center { width: 80px; margin-left: auto; margin-right: auto; }

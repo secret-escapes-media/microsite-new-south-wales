@@ -30,14 +30,12 @@
       padding-top: $s2;
       padding-bottom: $s2;
     }
-    &:nth-child(even){
+    .flexbox &:nth-child(even){
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
       .bob__image { @include span(7 last); }
       .bob__text { @include span(5); }
-      .flexbox & {
-        display: flex;
-        align-items: center;
-        flex-direction: row-reverse;
-      }
     }
     // END GRID STUFF
   }
