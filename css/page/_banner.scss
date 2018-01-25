@@ -30,10 +30,11 @@ $core-nav-height-sm:  $s8;
   &__title {
     font-weight: 600;
     line-height: 1.1;
-    font-size: $s6;
     display: block;
-    @include bp(md){ font-size: $s7; }
-    @include bp(xl){ font-size: $s8; }
+    margin: auto;
+    font-size: $s7;
+    @include bp(md){ font-size: $s8; }
+    @include bp(xl){ font-size: $s9; }
   }
 
   &__bg {

@@ -8,9 +8,8 @@ nav-order: 1
 
 banner:
   content: >
-    <h1 class="title title--xs title--super title--upper title--kerning">Discover Sydney and New&nbsp;South&nbsp;Wales</h1>
-    <div class="banner__title title title--display line-length--lg">Let Qantas show you the best of Australia</div>
-    <a href="#section-intro" class="btn btn--lg btn--qantas">Start exploring</a>
+    <div class="banner__title title title--display line-length--xl">Discover the Qantas Australia Day Flash Deal</div>
+    <a href="https://www.qantas.com/gb/en/promotions/experience-the-best-of-australia.html?alt_cam=gb:re:omd:dis:pomd:DNSWAUSTRALIADAY:n:n:n:n" target="_blank" id="tracking-button-banner" class="btn btn--lg btn--qantas">See the deal</a>
 
 
 
@@ -186,9 +185,7 @@ flights:
   prices-title: Flight Options
   prices:
     - title: Economy return from
-      price: "664"
-    - title: Premium Economy return from
-      price: "2,161"
+      price: "659"
     - title: Business return from
       price: "3,867"
 
@@ -299,12 +296,12 @@ flights:
   </div>
 
   <!-- FLIGHTS CLASSES -->
-  <div class="row row--xxl row--padding row--4-4-4-gutters text--center">
+  <div class="row row--xl row--padding row--6-6-gutters text--center">
 
     {% for price in flights.prices %}
     <div class="col">
       <div class="bg--black-20 bg--rounded row--padding vpad--md">
-        <p class="text--bold">{{price.title}}</p>
+        <p class="text--bold title--xxxs">{{price.title}}</p>
         <span class="title title--bold">£<span class="title--xs">{{price.price}}*</span></span>
       </div>
     </div>
