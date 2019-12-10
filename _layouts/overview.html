@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+
+<!-- PAGE INTRO -->
+<div class="bg--white page-intro">
+  <div class="container container--xxl text--center">
+    {{page.intro}}
+  </div>
+  <div class="page-intro__nav">
+    {% include nav/page-nav.html %}
+  </div>
+</div>
+
+
+
+<!-- PAGE SECTIONS -->
+<div class="bg--grey-lightest">
+  {% for section in page.sections %}
+    <div class="wp" id="section-{{section.id}}"></div>
+
+    <div class="page-section" style="background-image: url('{{site.img}}/content/{{section.id}}/bg.jpg');">
+
+      <div class="container">
+
+        <!-- INTRO -->
+        <div class="row row--valign-center">
+          <div class="col col--9">
+            <h2 class="title title--display title--xxxl text--bold">{{section.title}}</h2>
+            <div class="space--xxs"></div>
+            {{section.description}}
+          </div>
+
+        </div>
+
+        <!-- HIGHLIGHTS -->
+        <div class="vpad--xl">
+          {% assign highlights = site.data.highlights %}
+
+          <div class="row highlights row--valign-center">
+
+            <div class="col col--12 col--lg-6 col--xxl-3">
+              <div class="highlights__title">
+                <h3 class="title title--md ">{{section.highlights-title}}</h3>
+              </div>
+            </div>
+
+            <!-- HIGHLIGHTS -->
+            {% for pageHighlight in section.highlights %}
+              {% assign highlightData = highlights | where: 'id', pageHighlight.id %}
+              {% for item in highlightData %}
+
+                <div class="col col--12 col--lg-6 col--xxl-3">
+                  {% include page/highlight.html %}
+                </div>
+
+              {% endfor %}
+            {% endfor %}
+          </div> <!-- END .row.highlights -->
+
+        </div> <!-- END .vpad--xl -->
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+
+{% include qantas-section.html %}

@@ -1,0 +1,14 @@
+
+<div class="highlights__item bg-img bg-img--4-3 bg-img--lg-1-1 bg-img--xxl-3-4" style="background-image: url('{{site.img}}/highlights/{{item.id}}.jpg');">
+  <a href="javascript:void(0);" data-modal-item="{{item.id}}" data-modal-group="section" class="bg-img__link js-open-modal"></a>
+  <div class="bg-img__content">
+    <div class="boxpad--sm">
+      <h4 class="title title--display title--xs text--bold">{{item.title}}</h4>
+      {% if item.subtitle %}
+        <div class="space--xxxs"></div>
+        <p class="title text--upper text--bold">{{item.subtitle}}</p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="bg-img__overlay"></div>
+</div>

@@ -1,107 +1,230 @@
-var gulp        = require('gulp'),
-    shell       = require('gulp-shell'),
-    browserSync = require('browser-sync').create(),
-    concat      = require('gulp-concat'),
-    uglify      = require('gulp-uglify'),
-    htmlmin     = require('gulp-htmlmin'),
-    autoprefix  = require('gulp-autoprefixer'),
-    cssmin      = require('gulp-cssmin'),
-    imagemin    = require('gulp-imagemin'),
-    pngquant    = require('imagemin-pngquant');
+var gulp         = require('gulp');
+var path         = require('path');
+var del          = require('del');
+var cp           = require('child_process');
+var browserSync  = require('browser-sync');
+var watch        = require('gulp-watch');
+var sass         = require('gulp-sass');
+var sourcemaps   = require('gulp-sourcemaps');
+var autoprefix   = require('gulp-autoprefixer');
+var cssmin       = require('gulp-cssmin');
+var concat       = require('gulp-concat');
+var uglify       = require('gulp-uglify');
+var image        = require('gulp-image');
+var htmlmin      = require('gulp-htmlmin');
 
-// Task for building blog when something changed:
-gulp.task('build', ['js'], shell.task(['jekyll build --watch']));
 
-// Task for serving sub directory blog with Browsersync
-gulp.task('serve', ['js'], function () {
-    browserSync.init({
-      server: {
-        baseDir: '_site/',
-        routes: {
-          '/qantas-new-south-wales': '_site/'
-        }
+/////////////////////////////////////////////////////////////////////  utilities
+
+// starts with fresh asset files - this is a jekyll work around to not use its built in sass engine
+function cleanAssets() {
+  return del(["./_site/_assets/**/*"]);
+}
+
+// start browserSync local server and show under site subdirectory
+function browserSyncServe() {
+  browserSync.init({
+    server: {
+      baseDir: '_site/',
+      routes: {
+        '/uk/2019/qantas-new-south-wales': '_site/'
       }
-    });
-    // watches js to concat & uglify
-    gulp.watch('js/**/*.js', ['js']);
-    // Reloads page when some of the already built files changed:
-    gulp.watch('_site/**/*.*').on('change', browserSync.reload);
-});
+    }
+  });
+}
 
-// concat & min scripts
-gulp.task('js', function(){
+// Reload BrowserSync for when site changes are made
+function browserSyncReload(done) {
+  browserSync.reload();
+  done();
+}
+
+
+
+///////////////////////////////////////////////////////////////////......  build
+
+// build the jekyll site
+function buildJekyll(done) {
+  return cp.spawn('jekyll', ['build'], {stdio: 'inherit'})
+  .on('close', done);
+}
+
+// build for sass
+function buildSass() {
+  return gulp.src('./_assets/sass/**/*.scss')
+  .pipe(sourcemaps.init())
+  .pipe(sass().on('error', sass.logError))
+  .pipe(sourcemaps.init())
+  .pipe(sourcemaps.write('.'))
+  .pipe(gulp.dest('./_site/_assets/css/'))
+  .pipe(browserSync.reload({
+    stream: true
+  }));
+}
+
+// build for image files
+function buildImages() {
+  return gulp.src('./_assets/img/**/*.*')
+  .pipe(gulp.dest('./_site/_assets/img/'));
+}
+
+// build for main js file
+function buildJsMain(cb) {
   return gulp.src([
 
-    //  JS MAIN FILE BUILD
-    // --------------------
+  //  JS MAIN FILE BUILD
+  // --------------------
 
     // plugins
-    './js/_lib/modernizr-custom.js',
     './node_modules/jquery/dist/jquery.min.js',
     './node_modules/jquery-countdown/dist/jquery.countdown.min.js',
-    './node_modules/fittext.js/jquery.fittext.js',
+    // './node_modules/waypoints/lib/jquery.waypoints.min.js',
 
     // custom js - with on doc ready wrapper
-    './js/_components/on-ready/start.js',
+    './_assets/js/_components/on-ready/start.js',
 
     // components
-    './js/_components/standard.js',
-    './js/_components/offer-countdown.js',
-    './js/_components/modal.js',
+    './_assets/js/_components/standard.js',
+    './_assets/js/_components/offer-countdown.js',
+    './_assets/js/_components/modal.js',
+    './_assets/js/_components/sticky-nav.js',
 
     // custom js for project
-    './js/script.js',
+    './_assets/js/main.js',
 
-    './js/_components/on-ready/end.js'
+    './_assets/js/_components/on-ready/end.js'
     // end custom js
 
   ])
-  .pipe(concat('scripts.min.js'))
-  .pipe(gulp.dest('./_site/js'));
-});
+  .pipe(concat('main.js'))
+  .pipe(gulp.dest('./_site/_assets/js/'))
+  .pipe(browserSync.reload({
+    stream: true
+  }));
+}
 
-// uglify js
-gulp.task('js-compress', function(){
-  return gulp.src('./_site/**/*.js')
+// build for other js files - excludes main and files in sub folders
+function buildJs(cb) {
+  return gulp.src(['./_assets/js/*.js','!./_assets/js/main.js'])
+  .pipe(gulp.dest('./_site/_assets/js/'))
+  .pipe(browserSync.reload({
+    stream: true
+  }));
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////  watch
+
+// Watch files
+function watchFiles() {
+  gulp.watch('./_assets/sass/**/*.scss', buildSass);
+  gulp.watch('./_assets/js/**/*.js', gulp.parallel(buildJsMain, buildJs));
+  gulp.watch( // watch for jekyll
+    [
+      '**/*.*',
+      '!_site/**/*',
+      '!_assets/**/*',
+      '!node_modules/**/*',
+      '!.sass-cache/**/*'
+    ],
+    gulp.series(rebuild)
+  );
+  // watch for images
+  gulp.watch('_assets/img/**/*.*', buildImages)
+    // updates the compiled folder if an image is deleted
+    // modified snippet from https://gulpjs.org/recipes/handling-the-delete-event-on-watch
+    .on('change', function (event) {
+      if (event.type === 'deleted') {
+        var filePathFromSrc = path.relative(path.resolve('_assets/img/**/*.*'), event.path);
+        var destFilePath = path.resolve('_site/_assets/img/**/*.*', filePathFromSrc);
+        del.sync(destFilePath);
+      }
+      browserSync.reload();
+    });
+}
+
+
+
+//////////////////////////////////////////////////////////////////////  compress
+
+// remove sass sourcemaps for live
+function cleanSass() {
+  return del(['./_site/_assets/css/**/*.css.map']);
+}
+
+// compress sass files for live
+function compressSass() {
+  return gulp.src('./_site/_assets/css/**/*.css')
+  .pipe(autoprefix({
+      browsers: ['last 3 versions', 'iOS 7'],
+      cascade: false
+    }))
+  .pipe(cssmin())
+  .pipe(gulp.dest('./_site/_assets/css'));
+}
+
+// compress js files for live
+function compressJs() {
+  return gulp.src('./_site/_assets/js/**/*.js')
   .pipe(uglify())
-  .pipe(gulp.dest('./_site'));
-});
+  .pipe(gulp.dest('./_site/_assets/js'));
+}
 
-// minify complied html
-gulp.task('html', function() {
+// compress images files for live
+function compressImages() {
+  return gulp.src('./_site/_assets/img/**/*')
+  .pipe(image())
+  .pipe(gulp.dest('./_site/_assets/img'));
+}
+
+// compress html files for live
+function compressHtml() {
   return gulp.src('./_site/**/*.html')
   .pipe(htmlmin({
-    collapseWhitespace: true,
-    removeComments: true
-  }))
+      collapseWhitespace: true,
+      removeComments: true
+    }))
   .pipe(gulp.dest('./_site'));
-});
-
-// css autoprefix & min
-gulp.task('css', function() {
-  return gulp.src('./_site/**/*.css')
-  .pipe(autoprefix({
-    browsers: ['last 3 versions', 'iOS 7'],
-    cascade: false
-  }))
-  .pipe(cssmin())
-  .pipe(gulp.dest('./_site'));
-});
-
-// compress images
-gulp.task('images', function () {
-  return gulp.src('./img/**/*')
-  .pipe(imagemin({
-    progressive: true,
-    svgoPlugins: [{removeViewBox: false}],
-    use: [pngquant()]
-  }))
-  .pipe(gulp.dest('./_site/img'));
-});
+}
 
 
-// builds jekyll site & watch for changes
-gulp.task('default', ['js', 'build', 'serve' ]);
 
-// run before uploading to live - compresses images & css
-gulp.task('compress', ['images', 'css', 'html', 'js-compress']);
+///////////////////////////////////////////////////////////////////  build tasks
+
+// define complex tasks
+var rebuild = gulp.series(buildJekyll, browserSyncReload);
+var serve = gulp.series(browserSyncServe);
+var watch = gulp.series(watchFiles);
+var build = gulp.series(
+  cleanAssets,
+  gulp.parallel(
+    buildJekyll,
+    buildSass,
+    buildImages,
+    buildJsMain,
+    buildJs
+  )
+);
+var compress = gulp.parallel(
+  cleanSass,
+  compressSass,
+  compressJs,
+  compressImages,
+  compressHtml
+);
+
+// build and watch site for development
+exports.default = gulp.series(
+  build,
+  gulp.parallel(
+    serve,
+    watch
+  )
+);
+
+// compress & complie the site for uploading to live server
+exports.compile = gulp.series(
+  build,
+  compress
+);

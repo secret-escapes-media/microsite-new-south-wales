@@ -1,0 +1,36 @@
+// styles for logos on site
+
+.logo {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  &--se {
+    max-width: 140px;
+    padding-top: 3px;
+    @include bp($md){
+      max-width: 170px;
+      padding-top: 4px;
+    }
+    &-sm {
+      max-width: 120px;
+      padding-top: 2px;
+    }
+  }
+  &--partner { // max-width for this is about 150x46px
+    max-width: 120px;
+    &-sm { max-width: 100px; }
+  }
+  &--destination-new-south-wales { max-width: 110px; }
+  & + & {
+    margin-left: $s0; padding-left: $s0;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -20%;
+      height: 140%;
+      width: 1px;
+      background-color: rgba($white, 0.2);
+    }
+  }
+}

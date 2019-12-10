@@ -1,0 +1,93 @@
+
+
+
+# SYDNEY
+
+- type: highlight
+  title: Vivid Sydney
+  subtitle: 24 May – 15 June 2019
+  id: vivid-sydney
+  content: This technicolour festival sets the city alight, making for a truly awe-inspiring sight. Immersive light displays cover the city in glorious artworks, with the streets coming alive to the sound of musicians from across the world. Vivid Ideas furthers the offerings, with public talks and innovative ideas from global thinkers and creators. A truly diverse and spellbinding event!
+  section: sydney
+  pages:
+    - id: overview
+
+- type: highlight
+  title: Sydney Gay & Lesbian Mardi Gras
+  subtitle: 29 February 2020
+  id: sydney-gay-lesbian-mardi-gras
+  content: This LGBTQ+ extravaganza is easily the most fabulous party Sydney offers. Culminating in the effortlessly-sequinned parade down Oxford Street, the day sees Sydney’s many parks and bars alight in technicolor glamour. It’s an addictive, revelrous celebration of the gay, lesbian and wider LGBTQ+ community that offers so much to this great city and the wider country. Plus, it’s the biggest of its kind anywhere in the world, so share in this joyful celebration.
+  section: sydney
+  pages:
+    - id: overview
+
+- type: highlight
+  title: Handa Opera on Sydney Harbour
+  subtitle: 31 December 2019
+  id: handa-opera-on-sydney-harbour
+  content: Head to Sydney harbour for glorious views across the bay, as the sun slowly sinks behind the city. Start your evening with a glass of fizz before heading to a pop-up waterside restaurant for starlight dining. This year, they’re breaking from tradition and staging the award-winning West Side Story on the floating stage in the harbour. Don’t miss this extravagant spectacular!
+  section: sydney
+  pages:
+    - id: overview
+
+
+
+
+# BYRON BAY
+
+- type: highlight
+  title: Coffs Harbour
+  id: coffs-harbour
+  content: This stunning harbour shelters glorious beaches with waters that offer sanctuary to whales, turtles and dolphins. Go for a surf, kick-back on the sand, or explore the wider region where you’ll find a World Heritage rainforest perfect for dizzying canopy walks, canoe trails up Bellingen river and a host of music festivals set in stunning surroundings.
+  section: byron-bay
+  pages:
+    - id: overview
+
+- type: highlight
+  title: Jervis Bay
+  id: jervis-bay
+  content: This resplendent bay shelters some of the most gorgeous beaches in Australia. Powder white sand, acclaimed as the whitest in the world, slinks into crystal-clear waters that create an irresistible draw for visitors. The neighbouring marine parks teem with life, home to dolphins, fur seals, little penguins and migrating whales.
+  section: byron-bay
+  pages:
+    - id: overview
+
+- type: highlight
+  title: Port Macquarie
+  id: port-macquarie
+  content: Ancient forests cover the land before retreating from the pristine ocean at Port Macquarie. Nature trails through the area’s parks offer glorious immersion into the local flora and fauna, before cooling off on pristine beaches where watersports only further the offerings in this beautiful area. Food and wine is found in abundance, with gourmet feasting set to recharge you after a long day enjoying this beautiful spot.
+  section: byron-bay
+  pages:
+    - id: overview
+
+
+
+
+# LORD HOWE ISLAND
+
+- type: highlight
+  title: Blue Mountains
+  id: blue-mountains
+  content: These towering, verdant peaks are a true natural wonder, where a vast canopy of eucalypts emit an oily haze to which the mountains owe their name. Bushwalk through the tropical World Heritage marvel, passing vast sandstone crags and abundant wildlife. Take to the skies with the glass-floored cable car that crosses the vast gorge before immersing yourself in this natural wonderland.
+  section: lord-howe-island
+  pages:
+    - id: overview
+
+- type: highlight
+  title: Hunter Valley
+  id: hunter-valley
+  content: This classic New South Wales wine region offers sprawling vineyards set in gorgeous countryside, each cultivating fine tipples steeped in heritage. The oldest wine-producing region in Australia, the Hunter Valley is best known for its award-winning sémillon and shiraz. Alight for cellar-door tastings, boutique beer trails, fine restaurants and exquisite artisan chocolate.
+  section: lord-howe-island
+  pages:
+    - id: overview
+
+- type: highlight
+  title: Port Stephens
+  id: port-stephens
+  content: Horse ride down white-sand beaches, swim with dolphins, or seek out tree-hugging koalas. Port Stephens is a stunning spot that teems with a variety of unmissable wildlife. Just off the coast, dolphins and sharks are abundant, with diving opportunities available. Don’t miss the Worimi Conservation Lands, where giant sand dunes dip and rise for miles around before falling into the sea.
+  section: lord-howe-island
+  pages:
+    - id: overview
+
+
+
+

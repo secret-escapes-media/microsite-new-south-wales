@@ -3,15 +3,21 @@
 
   {% include page/head.html %}
 
-  <body id="top" class="page--{{page.id}} layout--{{page.layout}}" data-current-page="{{page.id}}"{% if page.group %} data-current-group="{{page.group}}"{% endif %}>
+  <body>
 
-    {% include page/tracking.html %}
+    {% include components/tracking.html %}
 
     {% include page/header.html %}
 
-    {{ content }}
+    {% include page/banner.html %}
+
+    <div class="content-spacing section-spacing">
+      {{ content }}
+    </div>
 
     {% include page/footer.html %}
+
+    {% include modal/modal.html %}
 
   </body>
 

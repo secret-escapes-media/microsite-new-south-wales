@@ -1,0 +1,132 @@
+// general styles for the project that wouldn't be a reuseable component
+
+
+.page-intro {
+  position: relative;
+  padding-top: $s6;
+  padding-bottom: $s11;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    height: 100px;
+    top: -100px;
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+  }
+  &__nav {
+    border-top: 1px solid rgba($grey-darkest,0.2);
+    height: 58px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+
+
+/*======= PAGE GUIDE SECTION ========*/
+
+.page-section {
+  padding-top: $s8;
+  padding-bottom: $s8;
+  @include background-attributes;
+  background-attachment: fixed;
+}
+
+
+
+/* HIGHLIGHTS */
+
+.highlights {
+  &__item {
+    display: block;
+    position: relative;
+    @include background-attributes();
+    @include transition;
+    box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.3);
+    transform: scale(1);
+    &:hover {
+      box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
+    }
+  }
+  &__title {
+    border-top: 1px double rgba($grey-darkest,0.2);
+    border-bottom: 1px double rgba($grey-darkest,0.2);
+    padding: $s2 0;
+  }
+}
+
+
+
+
+/*======= FOOTER qantas SECTION ========*/
+
+.qantas-section {
+  position: relative;
+  padding-bottom: $s10;
+  background-color: $qantas;
+
+  & .title { font-family: $font-title-01; }
+
+  &__wave {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    padding-top: 6.5%;
+    background-image: url('../img/content/qantas/waves-red.svg');
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  // Top banner
+  &__banner {
+    position: relative;
+    padding: $s8 0 $s13;
+    background-image: url('../img/content/qantas/bg.jpg');
+    color: $white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right center;
+    @include bp($xxl){
+      @include background-attributes;
+    }
+    & * { z-index: 1; }
+
+    & .title { color: $white; }
+    &-wave { background-image: url('../img/content/qantas/waves-red.svg'); }
+    &-logo {
+      display: block;
+      position: relative;
+      width: 200px;
+      padding-top: 11.5%;
+      background-image: url('../img/logo/qantas.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin-bottom: $s2;
+    }
+    &-bg {
+      display: block;
+      z-index: 0;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba($grey-darkest,0.5);
+      @include bp($xxl){ display: none; }
+    }
+  }
+
+  &__fare {
+    color: $grey-darker;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px 0 rgba($grey-darkest, 0.2);
+    & .title { color: $grey-darker; }
+  }
+
+}
