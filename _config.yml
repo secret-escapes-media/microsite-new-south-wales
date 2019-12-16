@@ -1,10 +1,10 @@
 # Site settings
-title: New South Wales with Qantas
+title: Sydney
 
 clients:
   - name: Qantas
     logo: qantas.svg
-    link: "https://www.qantas.com/gb/en/promotions/experience-the-best-of-australia.html?alt_cam=gb:re:omd:dis:secretescapes:dnsw:hub:n:n:n"
+    link: "https://ad.doubleclick.net/ddm/clk/457573948;261709344;x"
 
   - name: Destination New South Wales
     logo: dnsw.svg
@@ -12,10 +12,12 @@ clients:
 
 core-se-link: https://www.secretescapes.com/current-sales
 description: >
-  From wanderlust-inspiring beaches to the bustling sprawl of Australia’s favourite urban escape, New South Wales harbours adventures for all tastes. 
+  From wanderlust-inspiring beaches to the bustling sprawl of Australia’s favourite urban escape, New South Wales harbours adventures for all tastes.
 
 # file paths
 url:     "http://mp.secretescapes.com" # the base hostname & protocol for your site
+
+# REMEMBER LIVE URL EXCEPTION: mp.se.com/qantas-new-south-wales/
 baseurl: "/uk/2019/qantas-new-south-wales" # the subpath of your site, e.g. /blog/
 img:     "/uk/2019/qantas-new-south-wales/_assets/img"
 css:     "/uk/2019/qantas-new-south-wales/_assets/css"

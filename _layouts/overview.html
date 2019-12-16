@@ -24,42 +24,53 @@ layout: default
 
       <div class="container">
 
-        <!-- INTRO -->
-        <div class="row row--valign-center">
-          <div class="col col--9">
-            <h2 class="title title--display title--xxxl text--bold">{{section.title}}</h2>
-            <div class="space--xxs"></div>
-            {{section.description}}
-          </div>
-
+        <!-- TITLE -->
+        <div class="width width--xxxl text--center">
+          <h2 class="title title--display title--xxl text--bold">{{section.title}}</h2>
         </div>
+        <div class="space--xxl"></div>
 
-        <!-- HIGHLIGHTS -->
-        <div class="vpad--xl">
-          {% assign highlights = site.data.highlights %}
-
-          <div class="row highlights row--valign-center">
-
-            <div class="col col--12 col--lg-6 col--xxl-3">
-              <div class="highlights__title">
-                <h3 class="title title--md ">{{section.highlights-title}}</h3>
+        <!-- FEATURE -->
+        <div class="row row--valign-center row--no-gutters feature">
+          <div class="col col--7">
+            <div class="boxpad--xxl">
+              <h4 class="title title--sm text--bold">{{section.feature.title}}</h4>
+              {{section.feature.description}}
+            </div>
+          </div>
+          <div class="col col--5">
+            <div class="bg-img bg-img--16-9" style="background-image: url({{site.img}}/content/{{section.id}}/feature-1.jpg);"></div>
+            <div class="row row--6-6 row--no-gutters">
+              <div class="col">
+                <div class="bg-img bg-img--4-3" style="background-image: url({{site.img}}/content/{{section.id}}/feature-2.jpg);"></div>
+              </div>
+              <div class="col">
+                <div class="bg-img bg-img--4-3" style="background-image: url({{site.img}}/content/{{section.id}}/feature-3.jpg);"></div>
               </div>
             </div>
+          </div>
+        </div>
 
-            <!-- HIGHLIGHTS -->
-            {% for pageHighlight in section.highlights %}
-              {% assign highlightData = highlights | where: 'id', pageHighlight.id %}
-              {% for item in highlightData %}
 
-                <div class="col col--12 col--lg-6 col--xxl-3">
-                  {% include page/highlight.html %}
-                </div>
+        <!-- HIGHLIGHTS -->
+        <div class="space--lg"></div>
+        {% assign highlights = site.data.highlights %}
 
-              {% endfor %}
+        <div class="row highlights row--valign-center">
+
+          <!-- HIGHLIGHTS -->
+          {% for pageHighlight in section.highlights %}
+            {% assign highlightData = highlights | where: 'id', pageHighlight.id %}
+            {% for item in highlightData %}
+
+              <div class="col col--12 col--lg-4">
+                {% include page/highlight.html %}
+              </div>
+
             {% endfor %}
-          </div> <!-- END .row.highlights -->
+          {% endfor %}
+        </div> <!-- END .row.highlights -->
 
-        </div> <!-- END .vpad--xl -->
       </div>
     </div>
   {% endfor %}
