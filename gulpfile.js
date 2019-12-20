@@ -27,7 +27,7 @@ function browserSyncServe() {
     server: {
       baseDir: '_site/',
       routes: {
-        '/uk/2019/qantas-new-south-wales': '_site/'
+        '/qantas-new-south-wales': '_site/'
       }
     }
   });

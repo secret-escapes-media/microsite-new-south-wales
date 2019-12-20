@@ -18,10 +18,10 @@ description: >
 url:     "http://mp.secretescapes.com" # the base hostname & protocol for your site
 
 # REMEMBER LIVE URL EXCEPTION: mp.se.com/qantas-new-south-wales/
-baseurl: "/uk/2019/qantas-new-south-wales" # the subpath of your site, e.g. /blog/
-img:     "/uk/2019/qantas-new-south-wales/_assets/img"
-css:     "/uk/2019/qantas-new-south-wales/_assets/css"
-js:      "/uk/2019/qantas-new-south-wales/_assets/js"
+baseurl: "/qantas-new-south-wales" # the subpath of your site, e.g. /blog/
+img:     "/qantas-new-south-wales/_assets/img"
+css:     "/qantas-new-south-wales/_assets/css"
+js:      "/qantas-new-south-wales/_assets/js"
 
 
 # Build settings

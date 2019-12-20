@@ -32,23 +32,26 @@ layout: default
 
         <!-- FEATURE -->
         <div class="row row--valign-center row--no-gutters feature">
-          <div class="col col--7">
+
+          <div class="col col--xl-5">
+            <div class="bg-img bg-img--21-9 bg-img--xxl-16-9" style="background-image: url({{site.img}}/content/{{section.id}}/feature-1.jpg);"></div>
+            <div class="row row--xxl-6-6 row--no-gutters">
+              <div class="col">
+                <div class="bg-img bg-img--21-9 bg-img--xxl-4-3" style="background-image: url({{site.img}}/content/{{section.id}}/feature-2.jpg);"></div>
+              </div>
+              <div class="col">
+                <div class="bg-img bg-img--21-9 bg-img--xxl-4-3" style="background-image: url({{site.img}}/content/{{section.id}}/feature-3.jpg);"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col col--xl-7">
             <div class="boxpad--xxl">
               <h4 class="title title--sm text--bold">{{section.feature.title}}</h4>
               {{section.feature.description}}
             </div>
           </div>
-          <div class="col col--5">
-            <div class="bg-img bg-img--16-9" style="background-image: url({{site.img}}/content/{{section.id}}/feature-1.jpg);"></div>
-            <div class="row row--6-6 row--no-gutters">
-              <div class="col">
-                <div class="bg-img bg-img--4-3" style="background-image: url({{site.img}}/content/{{section.id}}/feature-2.jpg);"></div>
-              </div>
-              <div class="col">
-                <div class="bg-img bg-img--4-3" style="background-image: url({{site.img}}/content/{{section.id}}/feature-3.jpg);"></div>
-              </div>
-            </div>
-          </div>
+
         </div>
 
 
